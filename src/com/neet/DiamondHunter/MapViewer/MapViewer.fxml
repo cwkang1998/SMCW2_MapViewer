@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.MapViewer.MapViewer">
    <children>
-      <Canvas height="600.0" layoutX="0.0" layoutY="0.0" width="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Canvas fx:id="canvas" height="600.0" layoutX="0.0" layoutY="0.0" width="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Button layoutX="50.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Home" />
       <Button layoutX="200.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Flag" />
       <Button layoutX="350.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Boat" />
