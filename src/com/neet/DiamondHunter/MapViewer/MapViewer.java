@@ -12,10 +12,6 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class MapViewer extends Application {
 
-    @FXML
-    private Canvas canvas;
-    private MapDrawer tilemap;
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         Pane page = FXMLLoader.load(getClass().getResource("MapViewer.fxml"));
@@ -26,13 +22,6 @@ public class MapViewer extends Application {
 
     }
 
-
-    public void initialize() {
-
-        tilemap = new MapDrawer("/Maps/testmap.map", 16);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        tilemap.drawMap(gc);
-    }
 
     public static void main(String[] args){
         launch(args);

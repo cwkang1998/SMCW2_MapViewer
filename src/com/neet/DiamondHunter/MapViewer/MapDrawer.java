@@ -51,4 +51,23 @@ public class MapDrawer {
             }
         }
     }
+
+    /**
+     * Check if axe and boat can be placed
+     *
+     * @param x
+     * @param y
+     * @return notClickable
+     */
+    public boolean clickable(int x, int y) {
+        boolean notClickable = false;
+        try {
+            if (map[x][y] >= 20) {
+                notClickable = true;
+            }
+        } catch (Exception e) {
+        }
+
+        return notClickable;
+    }
 }
