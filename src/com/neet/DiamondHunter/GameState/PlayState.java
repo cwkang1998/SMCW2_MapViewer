@@ -22,6 +22,7 @@ import com.neet.DiamondHunter.Manager.Keys;
 import com.neet.DiamondHunter.TileMap.TileMap;
 
 public class PlayState extends GameState {
+	public int coordinates[] = new int[4];
 	
 	// player
 	private Player player;
@@ -176,12 +177,12 @@ public class PlayState extends GameState {
 		
 		item = new Item(tileMap);
 		item.setType(Item.AXE);
-		item.setTilePosition(26, 37);
+		item.setTilePosition(coordinates[0], coordinates[1]);
 		items.add(item);
 		
 		item = new Item(tileMap);
 		item.setType(Item.BOAT);
-		item.setTilePosition(12, 4);
+		item.setTilePosition(coordinates[2], coordinates[3]);
 		items.add(item);
 		
 	}
