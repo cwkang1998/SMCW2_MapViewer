@@ -20,6 +20,7 @@ public class MapViewer extends Application {
     public void start(Stage primaryStage) throws Exception {
         Pane page = FXMLLoader.load(getClass().getResource("MapViewer.fxml"));
         Scene scene = new Scene(page);
+        primaryStage.setTitle("MapViewer");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
