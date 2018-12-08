@@ -61,8 +61,8 @@ public class MapViewerController {
     public void saveNewCoordinates() {
         String filename = "Resources/Maps/Coordinates.txt";
 
-        BufferedWriter bw = null;
-        FileWriter fw = null;
+        BufferedWriter bw;
+        FileWriter fw;
         try {
             fw = new FileWriter(filename);
             bw = new BufferedWriter(fw);
@@ -71,25 +71,12 @@ public class MapViewerController {
                 bw.write(Integer.toString(coordinates[i]));
                 bw.newLine();
             }
+            bw.close();
+            fw.close();
         } catch (IOException e) {
 
             e.printStackTrace();
 
-        } finally {
-
-            try {
-
-                if (bw != null)
-                    bw.close();
-
-                if (fw != null)
-                    fw.close();
-
-            } catch (IOException ex) {
-
-                ex.printStackTrace();
-
-            }
         }
     }
 
