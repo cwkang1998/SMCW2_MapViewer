@@ -93,6 +93,22 @@ public class MapViewerController {
         });
     }
 
+    @FXML
+    public void setLocation() {
+        canvas.setOnMouseClicked(event -> {
+            if (isValid) {
+
+                if (axe) {
+                    coordinates[0] = xCo;
+                    coordinates[1] = yCo;
+                    System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+                    saveNewCoordinates();
+                    render();
+                }
+            }
+        });
+    }
+
 
     @FXML
     public void resetToDefaultCoordinates() {
