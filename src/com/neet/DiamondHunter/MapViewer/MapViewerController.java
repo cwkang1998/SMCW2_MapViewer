@@ -1,9 +1,7 @@
 package com.neet.DiamondHunter.MapViewer;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 
 import java.io.*;
@@ -36,20 +34,25 @@ public class MapViewerController {
     boolean axe = false;
     boolean boat = false;
 
+    public int xCo, yCo;
 
     public void initialize() {
 
         tilemap = new MapDrawer(canvas.getGraphicsContext2D());
+        readCoordinates();
         render();
+        System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
 
-        btnAxe.setOnMouseClicked(event -> {
+        btnAxe.setOnAction(event -> {
             axe = true;
             boat = false;
+
         });
 
-        btnBoat.setOnMouseClicked(event -> {
+        btnBoat.setOnAction(event -> {
             axe = false;
             boat = true;
+
         });
     }
 
@@ -79,10 +82,13 @@ public class MapViewerController {
     @FXML
     public void validation() {
         canvas.setOnMouseMoved(event -> {
-            if (tilemap.clickable((int) event.getX() / 16, (int) event.getY() / 16)) {
-                isValid = true;
-            } else {
+
+            xCo = (int) event.getX() / 16;
+            yCo = (int) event.getY() / 16;
+            if (tilemap.notClickable(xCo, yCo)) {
                 isValid = false;
+            } else {
+                isValid = true;
             }
         });
     }
@@ -114,7 +120,7 @@ public class MapViewerController {
         }
     }
 
-    private void render(){
+    private void render() {
         tilemap.drawMap();
         tilemap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
     }
