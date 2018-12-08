@@ -2,6 +2,7 @@ package com.neet.DiamondHunter.MapViewer;
 
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import java.io.*;
@@ -97,7 +98,6 @@ public class MapViewerController {
     public void setLocation() {
         canvas.setOnMouseClicked(event -> {
             if (isValid) {
-
                 if (axe) {
                     coordinates[0] = xCo;
                     coordinates[1] = yCo;
@@ -113,6 +113,14 @@ public class MapViewerController {
                     saveNewCoordinates();
                     render();
                 }
+            } else {
+                if (boat || axe) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Access Denied");
+                    alert.showAndWait();
+                }
             }
         });
     }
@@ -120,6 +128,7 @@ public class MapViewerController {
 
     @FXML
     public void resetToDefaultCoordinates() {
+        boat = axe = false;
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
         coordinates = MapDrawer.DEFAULT_COORDINATE;
         saveNewCoordinates();
