@@ -36,6 +36,25 @@ public class MapViewerController {
     @FXML
     private Button btn_save;
 
+
+    public void initialize() {
+
+        tilemap = new MapDrawer("/Maps/testmap.map", 16);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        tilemap.drawMap(gc);
+        tilemap.drawItems(gc);
+
+        btnAxe.setOnMouseClicked(event -> {
+            axe = true;
+            boat = false;
+        });
+
+        btnBoat.setOnMouseClicked(event -> {
+            axe = false;
+            boat = true;
+        });
+    }
+
     @FXML
     public void onClick_btn_save(ActionEvent event) {
         String filename = "Resources/Maps/Coordinates.txt";
@@ -72,6 +91,18 @@ public class MapViewerController {
         }
     }
 
+    @FXML
+    public void validation() {
+        canvas.setOnMouseMoved(event -> {
+            if (tilemap.clickable((int) event.getX() / 16, (int) event.getY() / 16)) {
+                isValid = true;
+            } else {
+                isValid = false;
+            }
+        });
+    }
+
+
 
 
     public void readCoordinates() {
@@ -89,33 +120,5 @@ public class MapViewerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    public void validation() {
-        canvas.setOnMouseMoved(event -> {
-            if (tilemap.clickable((int) event.getX() / 16, (int) event.getY() / 16)) {
-                isValid = true;
-            } else {
-                isValid = false;
-            }
-        });
-    }
-
-    public void initialize() {
-
-        tilemap = new MapDrawer("/Maps/testmap.map", 16);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        tilemap.drawMap(gc);
-
-        btnAxe.setOnMouseClicked(event -> {
-            axe = true;
-            boat = false;
-        });
-
-        btnBoat.setOnMouseClicked(event -> {
-            axe = false;
-            boat = true;
-        });
     }
 }

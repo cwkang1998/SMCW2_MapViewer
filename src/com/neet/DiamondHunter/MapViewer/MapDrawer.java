@@ -2,8 +2,8 @@ package com.neet.DiamondHunter.MapViewer;
 
 import javafx.scene.canvas.GraphicsContext;
 
-import java.awt.image.BufferedImage;
 import java.io.*;
+
 import javafx.scene.image.Image;
 
 public class MapDrawer {
@@ -14,6 +14,7 @@ public class MapDrawer {
     private int mapWidth;
     private int mapHeight;
     private Image tile;
+
 
     public MapDrawer(String s, int tileSize) {
         this.tileSize = tileSize;
@@ -37,7 +38,7 @@ public class MapDrawer {
         }
     }
 
-    public void drawMap(GraphicsContext gc) { //draw map
+    protected void drawMap(GraphicsContext gc) { //draw map
         tile = new Image("/Tilesets/testtileset.gif");
         for (int row = 0; row < map.length; row++) {
             for (int col = 0; col < map[row].length; col++) {
@@ -50,6 +51,15 @@ public class MapDrawer {
                 gc.drawImage(tile, sourcex * tileSize, sourcey * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
             }
         }
+    }
+
+    protected void drawItems(GraphicsContext gc) {
+        Image itemSprite = new Image("/Sprites/items.gif");
+        gc.drawImage(itemSprite, 0, 16, tileSize, tileSize,
+                (4 * tileSize), (12 * tileSize), tileSize, tileSize);
+        gc.drawImage(itemSprite, 16, 16, tileSize, tileSize,
+                (37 * tileSize), (26 * tileSize), tileSize, tileSize);
+
     }
 
     /**
