@@ -105,6 +105,14 @@ public class MapViewerController {
                     saveNewCoordinates();
                     render();
                 }
+
+                if (boat) {
+                    coordinates[2] = xCo;
+                    coordinates[3] = yCo;
+                    System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+                    saveNewCoordinates();
+                    render();
+                }
             }
         });
     }
