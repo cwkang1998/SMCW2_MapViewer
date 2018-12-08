@@ -10,17 +10,6 @@ import java.io.*;
 
 public class MapViewerController {
 
-    public int coordinates[] = new int[4];
-
-
-    //if axe is chosen
-    //coordinates[0]=x;
-    //coordinates[1]=y;
-
-    //if boat is chosen
-    //coordinates[2]=i;
-    //coordinates[3]=j;
-
     @FXML
     private Canvas canvas;
     private MapDrawer tilemap;
@@ -31,20 +20,27 @@ public class MapViewerController {
     @FXML
     private Button btnBoat;
 
-    boolean isValid;
-    boolean axe = false;
-    boolean boat = false;
-
     @FXML
     private Button btnSave;
+
+    /**
+     * if axe is chosen
+     * coordinates[0]=x;
+     * coordinates[1]=y;
+     * if boat is chosen
+     * coordinates[2]=i;
+     * coordinates[3]=j;
+     */
+    public int coordinates[] = new int[4];
+    boolean isValid = false;
+    boolean axe = false;
+    boolean boat = false;
 
 
     public void initialize() {
 
-        tilemap = new MapDrawer("/Maps/testmap.map", 16);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        tilemap.drawMap(gc);
-        tilemap.drawItems(gc);
+        tilemap = new MapDrawer(canvas.getGraphicsContext2D());
+        render();
 
         btnAxe.setOnMouseClicked(event -> {
             axe = true;
@@ -94,10 +90,11 @@ public class MapViewerController {
 
     @FXML
     public void resetToDefaultCoordinates() {
-        System.out.println(coordinates[0]+ " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+        System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
         coordinates = MapDrawer.DEFAULT_COORDINATE;
         saveNewCoordinates();
-        System.out.println(coordinates[0]+ " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+        System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+        render();
     }
 
     public void readCoordinates() {
@@ -115,5 +112,10 @@ public class MapViewerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void render(){
+        tilemap.drawMap();
+        tilemap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
     }
 }

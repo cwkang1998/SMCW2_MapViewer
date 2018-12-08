@@ -7,21 +7,28 @@ import java.io.*;
 import javafx.scene.image.Image;
 
 public class MapDrawer {
-    private int x;
-    private int y;
+
+    public static String MAP_URL = "/Maps/testmap.map";
+    public static int[] DEFAULT_COORDINATE = {4, 12, 37, 26};
+
+    private GraphicsContext graphicsContext;
+    private Image tile;
+    private Image itemSprite;
+
     private int tileSize;
     private int[][] map;
     private int mapWidth;
     private int mapHeight;
-    private Image tile;
-    public static int[] DEFAULT_COORDINATE = {4, 12, 37, 26};
 
 
-    public MapDrawer(String s, int tileSize) {
-        this.tileSize = tileSize;
+    public MapDrawer(GraphicsContext gc) {
+        this.graphicsContext = gc;
+        this.tileSize = 16;
+        this.tile = new Image("/Tilesets/testtileset.gif");
+        this.itemSprite = new Image("/Sprites/items.gif");
 
         try {
-            InputStream in = getClass().getResourceAsStream(s); //read map file
+            InputStream in = getClass().getResourceAsStream(MAP_URL); //read map file
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             mapWidth = Integer.parseInt(br.readLine());
             mapHeight = Integer.parseInt(br.readLine());
@@ -39,8 +46,7 @@ public class MapDrawer {
         }
     }
 
-    protected void drawMap(GraphicsContext gc) { //draw map
-        tile = new Image("/Tilesets/testtileset.gif");
+    public void drawMap() { //draw map
         for (int row = 0; row < map.length; row++) {
             for (int col = 0; col < map[row].length; col++) {
                 int sourcex = map[row][col];
@@ -49,18 +55,27 @@ public class MapDrawer {
                     sourcey++;
                     sourcex = (int) (sourcex - tile.getWidth() / tileSize);
                 }
-                gc.drawImage(tile, sourcex * tileSize, sourcey * tileSize, tileSize, tileSize, col * tileSize, row * tileSize, tileSize, tileSize);
+                graphicsContext.drawImage(tile, sourcex * tileSize, sourcey * tileSize, tileSize, tileSize,
+                        col * tileSize, row * tileSize, tileSize, tileSize);
             }
         }
     }
 
-    protected void drawItems(GraphicsContext gc) {
-        Image itemSprite = new Image("/Sprites/items.gif");
-        gc.drawImage(itemSprite, 0, 16, tileSize, tileSize,
-                (13 * tileSize), (12 * tileSize), tileSize, tileSize);
-        gc.drawImage(itemSprite, 16, 16, tileSize, tileSize,
-                (14 * tileSize), (26 * tileSize), tileSize, tileSize);
+    /**
+     * Draw out the usable items boat and axe on the given coordinates.
+     * @param axeX X coordinate for the axe
+     * @param axeY Y coordinate for the axe
+     * @param boatX X coordinate for the boat
+     * @param boatY Y coordinate for the boat
+     */
+    public void drawItems(int axeX, int axeY, int boatX, int boatY) {
+        //Draw the axe
+        graphicsContext.drawImage(itemSprite, 16, 16, tileSize, tileSize,
+                (axeX * tileSize), (axeY * tileSize), tileSize, tileSize);
 
+        //Draw the boat
+        graphicsContext.drawImage(itemSprite, 0, 16, tileSize, tileSize,
+                (boatX * tileSize), (boatY * tileSize), tileSize, tileSize);
     }
 
     /**
