@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.MapViewer.MapViewerController">
+<AnchorPane prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.MapViewer.MapViewer">
    <children>
-      <Canvas fx:id="canvas" height="600.0" layoutX="0.0" layoutY="0.0" width="800.0" onMouseEntered="#validation" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="50.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Home" />
-      <Button layoutX="200.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Flag" />
-      <Button layoutX="350.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Boat" />
-       <Button layoutX="500.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Default" />
-       <Button layoutX="650.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Save" />
-      <Circle fill="DODGERBLUE" layoutX="772.0" layoutY="624.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Canvas fx:id="canvas" height="800.0" layoutX="0.0" layoutY="0.0" width="700.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button layoutX="41.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Home" />
+      <Button layoutX="191.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Flag" />
+      <Button layoutX="341.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Boat" />
+       <Button layoutX="491.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Default" />
+       <Button layoutX="641.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Save" />
+      <Circle fill="DODGERBLUE" layoutX="723.0" layoutY="669.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
