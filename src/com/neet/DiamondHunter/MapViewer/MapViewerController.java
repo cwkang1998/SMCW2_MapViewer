@@ -5,11 +5,13 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+
 import java.io.*;
 
 public class MapViewerController {
 
     public int coordinates[] = new int[4];
+
 
     //if axe is chosen
     //coordinates[0]=x;
@@ -56,7 +58,7 @@ public class MapViewerController {
     }
 
     @FXML
-    public void saveNewCoordinates(ActionEvent event) {
+    public void saveNewCoordinates() {
         String filename = "Resources/Maps/Coordinates.txt";
 
         BufferedWriter bw = null;
@@ -102,6 +104,15 @@ public class MapViewerController {
         });
     }
 
+
+    @FXML
+    public void resetToDefaultCoordinates() {
+        System.out.println(coordinates[0]+ " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+        coordinates = MapDrawer.DEFAULT_COORDINATE;
+        saveNewCoordinates();
+        System.out.println(coordinates[0]+ " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+    }
+
     public void readCoordinates() {
 
         File filename = new File("Resources/Maps/Coordinates.txt");
@@ -117,9 +128,5 @@ public class MapViewerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void resetToDefaultCoordinates(){
-
     }
 }

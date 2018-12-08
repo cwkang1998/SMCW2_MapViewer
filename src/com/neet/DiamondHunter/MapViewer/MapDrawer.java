@@ -14,6 +14,7 @@ public class MapDrawer {
     private int mapWidth;
     private int mapHeight;
     private Image tile;
+    public static int[] DEFAULT_COORDINATE = {4, 12, 37, 26};
 
 
     public MapDrawer(String s, int tileSize) {
@@ -56,9 +57,9 @@ public class MapDrawer {
     protected void drawItems(GraphicsContext gc) {
         Image itemSprite = new Image("/Sprites/items.gif");
         gc.drawImage(itemSprite, 0, 16, tileSize, tileSize,
-                (4 * tileSize), (12 * tileSize), tileSize, tileSize);
+                (13 * tileSize), (12 * tileSize), tileSize, tileSize);
         gc.drawImage(itemSprite, 16, 16, tileSize, tileSize,
-                (37 * tileSize), (26 * tileSize), tileSize, tileSize);
+                (14 * tileSize), (26 * tileSize), tileSize, tileSize);
 
     }
 
