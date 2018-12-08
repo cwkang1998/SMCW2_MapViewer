@@ -34,7 +34,7 @@ public class MapViewerController {
     boolean boat = false;
 
     @FXML
-    private Button btn_save;
+    private Button btnSave;
 
 
     public void initialize() {
@@ -56,7 +56,7 @@ public class MapViewerController {
     }
 
     @FXML
-    public void onClick_btn_save(ActionEvent event) {
+    public void saveNewCoordinates(ActionEvent event) {
         String filename = "Resources/Maps/Coordinates.txt";
 
         BufferedWriter bw = null;
@@ -102,9 +102,6 @@ public class MapViewerController {
         });
     }
 
-
-
-
     public void readCoordinates() {
 
         File filename = new File("Resources/Maps/Coordinates.txt");
@@ -120,5 +117,9 @@ public class MapViewerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void resetToDefaultCoordinates(){
+
     }
 }
