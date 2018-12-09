@@ -3,16 +3,12 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.MapViewer.MapViewerController">
-   <children>
-       <Canvas fx:id="canvas" height="800.0" layoutX="0.0" layoutY="0.0" onMouseEntered="#validation" onMouseClicked="#setLocation" width="700.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="41.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Home" />
-      <Button fx:id="btnAxe" layoutX="191.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Axe" />
-      <Button fx:id="btnBoat" layoutX="341.0" layoutY="700.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Boat" />
-       <Button layoutX="491.0" layoutY="700.0" mnemonicParsing="false" onAction="#resetToDefaultCoordinates" prefHeight="100.0" prefWidth="100.0" text="Default" />
-       <Button fx:id="btn_save" layoutX="641.0" layoutY="700.0" mnemonicParsing="false" onAction="#saveNewCoordinates" prefHeight="100.0" prefWidth="100.0" text="Save" />
-      <Circle fill="DODGERBLUE" layoutX="723.0" layoutY="624.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-   </children>
+<AnchorPane prefHeight="800.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.MapViewer.MapViewerController">
+    <Canvas fx:id="canvas" height="700.0" nodeOrientation="INHERIT" onMouseClicked="#setLocation" onMouseEntered="#validation" width="640.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <Button layoutX="25.0" layoutY="725.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Home" />
+    <Button fx:id="btnAxe" layoutX="150.0" layoutY="725.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Axe" />
+    <Button fx:id="btnBoat" layoutX="275.0" layoutY="725.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Boat" />
+    <Button layoutX="400.0" layoutY="725.0" mnemonicParsing="false" onAction="#resetToDefaultCoordinates" prefHeight="50.0" prefWidth="75.0" text="Default" />
+    <Button fx:id="btn_save" layoutX="525.0" layoutY="725.0" mnemonicParsing="false" onAction="#saveNewCoordinates" prefHeight="50.0" prefWidth="75.0" text="Save" />
 </AnchorPane>

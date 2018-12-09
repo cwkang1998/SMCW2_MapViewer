@@ -39,7 +39,7 @@ public class MapViewerController {
 
     public void initialize() {
 
-        tilemap = new MapDrawer(canvas.getGraphicsContext2D());
+        tilemap = new MapDrawer(canvas);
         readCoordinates();
         render();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);

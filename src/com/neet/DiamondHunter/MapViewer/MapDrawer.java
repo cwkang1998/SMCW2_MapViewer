@@ -1,5 +1,6 @@
 package com.neet.DiamondHunter.MapViewer;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.io.*;
@@ -11,6 +12,7 @@ public class MapDrawer {
     public static String MAP_URL = "/Maps/testmap.map";
     public static int[] DEFAULT_COORDINATE = {4, 12, 37, 26};
 
+    private Canvas canvas;
     private GraphicsContext graphicsContext;
     private Image tile;
     private Image itemSprite;
@@ -21,8 +23,9 @@ public class MapDrawer {
     private int mapHeight;
 
 
-    public MapDrawer(GraphicsContext gc) {
-        this.graphicsContext = gc;
+    public MapDrawer(Canvas canvas) {
+        this.canvas = canvas;
+        this.graphicsContext = canvas.getGraphicsContext2D();
         this.tileSize = 16;
         this.tile = new Image("/Tilesets/testtileset.gif");
         this.itemSprite = new Image("/Sprites/items.gif");
@@ -44,6 +47,10 @@ public class MapDrawer {
             }
         } catch (Exception e) {
         }
+
+        //Set canvas to dynamic
+        canvas.setWidth(mapWidth * 16);
+        canvas.setHeight(mapHeight * 16);
     }
 
     public void drawMap() { //draw map
