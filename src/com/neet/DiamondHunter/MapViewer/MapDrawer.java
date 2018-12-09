@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 public class MapDrawer {
 
     public static String MAP_URL = "/Maps/testmap.map";
-    public static int[] DEFAULT_COORDINATE = {4, 12, 37, 26};
+    public static final int[] DEFAULT_COORDINATE = {4, 12, 37, 26};
 
     private Canvas canvas;
     private GraphicsContext graphicsContext;
