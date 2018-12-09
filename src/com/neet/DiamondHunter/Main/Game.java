@@ -7,11 +7,18 @@ package com.neet.DiamondHunter.Main;
 import javax.swing.JFrame;
 
 public class Game {
+
+	public static String itemCoordsFile;
 	
 	public static void main(String[] args) {
 		
 		JFrame window = new JFrame("Diamond Hunter");
-		
+
+		if(!args[0].isEmpty()){
+			itemCoordsFile = args[0];
+		}
+		itemCoordsFile = "Resources/Maps/Coordinates.txt";
+
 		window.add(new GamePanel());
 		
 		window.setResizable(false);
