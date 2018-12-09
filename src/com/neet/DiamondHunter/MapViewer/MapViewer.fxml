@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="800.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.MapViewer.MapViewerController">
-    <Canvas fx:id="canvas" height="700.0" nodeOrientation="INHERIT" onMouseClicked="#setLocation" onMouseEntered="#validation" width="640.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <Canvas fx:id="canvas" height="700.0" onMouseClicked="#setLocation" onMouseEntered="#validation" width="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Button layoutX="25.0" layoutY="725.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Home" />
     <Button fx:id="btnAxe" layoutX="150.0" layoutY="725.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Axe" />
     <Button fx:id="btnBoat" layoutX="275.0" layoutY="725.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="75.0" text="Boat" />

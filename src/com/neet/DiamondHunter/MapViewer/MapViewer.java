@@ -18,6 +18,7 @@ public class MapViewer extends Application {
         Scene scene = new Scene(page);
         primaryStage.setTitle("MapViewer");
         primaryStage.setScene(scene);
+        primaryStage.sizeToScene();
         primaryStage.setResizable(false);
         primaryStage.show();
 
