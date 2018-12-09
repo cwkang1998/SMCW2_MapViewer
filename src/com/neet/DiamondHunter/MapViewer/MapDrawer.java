@@ -77,11 +77,11 @@ public class MapDrawer {
      */
     public void drawItems(int axeX, int axeY, int boatX, int boatY) {
         //Draw the axe
-        graphicsContext.drawImage(itemSprite, 16, 16, tileSize, tileSize,
+        graphicsContext.drawImage(itemSprite, 0, 16, tileSize, tileSize,
                 (axeX * tileSize), (axeY * tileSize), tileSize, tileSize);
 
         //Draw the boat
-        graphicsContext.drawImage(itemSprite, 0, 16, tileSize, tileSize,
+        graphicsContext.drawImage(itemSprite, 16, 16, tileSize, tileSize,
                 (boatX * tileSize), (boatY * tileSize), tileSize, tileSize);
     }
 
