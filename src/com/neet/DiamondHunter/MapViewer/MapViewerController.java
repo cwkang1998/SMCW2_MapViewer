@@ -19,9 +19,6 @@ public class MapViewerController {
     @FXML
     private Button btnBoat;
 
-    @FXML
-    private Button btnSave;
-
     /**
      * if axe is chosen
      * coordinates[0]=x;
@@ -134,6 +131,22 @@ public class MapViewerController {
         saveNewCoordinates();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
         render();
+    }
+
+    @FXML
+    public void showInformation() {
+        String instructions = "Axe and Boat Button: Clicking on the axe or boat button will allow you to set the new " +
+                "location for the item of choice. Simply click the button, then click on the new location of your choice " +
+                "on the map to set the new location.\n\n" +
+                "Default Button: The default button would reset the axe and boat coordinate back to the defaults of the game.\n\n" +
+                "Save Button: This button saves the items' coordinates that have been set by the player to a file, " +
+                "which will be used by the main game(Diamond Hunter) to place the items. Note that all coordinates changes " +
+                "will only take place in the game if it is saved, including the default button.\n\n";
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("How to use MapViewer");
+        alert.setHeaderText("MapViewer Instruction");
+        alert.setContentText(instructions);
+        alert.showAndWait();
     }
 
     public void readCoordinates() {
