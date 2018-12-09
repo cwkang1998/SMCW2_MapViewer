@@ -131,7 +131,6 @@ public class MapViewerController {
         coordinates[1] = MapDrawer.DEFAULT_COORDINATE[1];
         coordinates[2] = MapDrawer.DEFAULT_COORDINATE[2];
         coordinates[3] = MapDrawer.DEFAULT_COORDINATE[3];
-        saveNewCoordinates();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
         render();
     }
