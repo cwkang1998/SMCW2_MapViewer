@@ -5,19 +5,27 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MapViewerController {
 
     @FXML
     private Canvas canvas;
-    private MapDrawer tileMap;
 
     @FXML
     private Button btnAxe;
 
     @FXML
     private Button btnBoat;
+
+    private MapDrawer tileMap;
 
     /**
      * if axe is chosen
@@ -27,16 +35,18 @@ public class MapViewerController {
      * coordinates[2]=i;
      * coordinates[3]=j;
      */
-    private int xCo, yCo;
-    private int[] coordinates = new int[4];
-    private boolean isValid = false;
     private boolean axe = false;
     private boolean boat = false;
+    private int xCo, yCo;
+    private boolean isValid = false;
+
+    private int[] coordinates = new int[4];
+    private ArrayList<int[]> coordinateHistory;
 
 
     public void initialize() {
-
-        tileMap = new MapDrawer(canvas);
+        this.tileMap = new MapDrawer(canvas);
+        this.coordinateHistory = new ArrayList<>();
         readCoordinates();
         render();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
@@ -52,29 +62,6 @@ public class MapViewerController {
             boat = true;
 
         });
-    }
-
-    @FXML
-    public void saveNewCoordinates() {
-        String filename = "Resources/Maps/Coordinates.txt";
-
-        BufferedWriter bw;
-        FileWriter fw;
-        try {
-            fw = new FileWriter(filename);
-            bw = new BufferedWriter(fw);
-
-            for (int i = 0; i < 4; i++) {
-                bw.write(Integer.toString(coordinates[i]));
-                bw.newLine();
-            }
-            bw.close();
-            fw.close();
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
     }
 
     @FXML
@@ -146,8 +133,17 @@ public class MapViewerController {
         alert.showAndWait();
     }
 
-    public void readCoordinates() {
+    @FXML
+    public void undoChanges() {
+        if (coordinateHistory.size() > 1) {
+            coordinateHistory.remove(coordinateHistory.size() - 1);
+            coordinates = coordinateHistory.get(coordinateHistory.size() - 1).clone();
+            saveNewCoordinates();
+            render();
+        }
+    }
 
+    private void readCoordinates() {
         File filename = new File("Resources/Maps/Coordinates.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
 
@@ -160,6 +156,32 @@ public class MapViewerController {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        coordinateHistory.add(coordinates.clone());
+    }
+
+    private void saveNewCoordinates() {
+        String filename = "Resources/Maps/Coordinates.txt";
+
+        BufferedWriter bw;
+        FileWriter fw;
+        try {
+            fw = new FileWriter(filename);
+            bw = new BufferedWriter(fw);
+
+            for (int i = 0; i < 4; i++) {
+                bw.write(Integer.toString(coordinates[i]));
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+        if (!Arrays.equals(coordinates, coordinateHistory.get(coordinateHistory.size() - 1))) {
+            coordinateHistory.add(coordinates.clone());
         }
     }
 

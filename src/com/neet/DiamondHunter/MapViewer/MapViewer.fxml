@@ -23,7 +23,7 @@
             prefHeight="110.0" prefWidth="110.0"
             style="-fx-background-color:#5b9654; -fx-background-image: url('/FXML-Image/default.png'); -fx-background-size: cover,auto;"/>
 
-    <Button layoutX="396.0" layoutY="645.0" mnemonicParsing="false" onAction="#saveNewCoordinates" prefHeight="110.0"
+    <Button layoutX="396.0" layoutY="645.0" mnemonicParsing="false" onAction="#undoChanges" prefHeight="110.0"
             prefWidth="110.0"
             style="-fx-background-color:#5b9654; -fx-background-image: url('/FXML-Image/save.png'); -fx-background-size: cover,auto;"/>
 
