@@ -112,10 +112,10 @@ public class MapViewerController {
                 }
             } else {
                 if (boat || axe) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Warning");
                     alert.setHeaderText(null);
-                    alert.setContentText("Access Denied");
+                    alert.setContentText("You can't place it here.");
                     alert.showAndWait();
                 }
             }
