@@ -126,12 +126,11 @@ public class MapViewerController {
     @FXML
     public void resetToDefaultCoordinates() {
         boat = axe = false;
-        System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
         coordinates[0] = MapDrawer.DEFAULT_COORDINATE[0];
         coordinates[1] = MapDrawer.DEFAULT_COORDINATE[1];
         coordinates[2] = MapDrawer.DEFAULT_COORDINATE[2];
         coordinates[3] = MapDrawer.DEFAULT_COORDINATE[3];
-        System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+        saveNewCoordinates();
         render();
     }
 
