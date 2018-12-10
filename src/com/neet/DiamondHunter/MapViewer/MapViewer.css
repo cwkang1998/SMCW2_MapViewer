@@ -1,24 +1,24 @@
 .button{
-    -fx-background-color:#5b9654;
+    -fx-background-color:darkseagreen;
     -fx-background-size: cover;
 }
 
 #btnAxe:focused {
-    -fx-background-color:darkseagreen;
+    -fx-background-color:seagreen;
 }
 
 #btnBoat:focused {
-    -fx-background-color:darkseagreen;
+    -fx-background-color:seagreen;
 }
 
 #btnReset:pressed {
-    -fx-background-color:darkseagreen;
+    -fx-background-color:seagreen;
 }
 
 #btnUndo:pressed {
-    -fx-background-color:darkseagreen;
+    -fx-background-color:seagreen;
 }
 
 #btnInfo:pressed {
-    -fx-background-color:darkseagreen;
+    -fx-background-color:seagreen;
 }
