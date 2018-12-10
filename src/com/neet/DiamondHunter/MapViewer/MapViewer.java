@@ -16,6 +16,7 @@ public class MapViewer extends Application {
     public void start(Stage primaryStage) throws Exception {
         Pane page = FXMLLoader.load(getClass().getResource("MapViewer.fxml"));
         Scene scene = new Scene(page);
+        scene.getStylesheets().add(getClass().getResource("MapViewer.css").toExternalForm());
         primaryStage.setTitle("MapViewer");
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
