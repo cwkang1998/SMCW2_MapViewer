@@ -2,3 +2,23 @@
     -fx-background-color:#5b9654;
     -fx-background-size: cover;
 }
+
+#btnAxe:focused {
+    -fx-background-color:darkseagreen;
+}
+
+#btnBoat:focused {
+    -fx-background-color:darkseagreen;
+}
+
+#btnReset:pressed {
+    -fx-background-color:darkseagreen;
+}
+
+#btnUndo:pressed {
+    -fx-background-color:darkseagreen;
+}
+
+#btnInfo:pressed {
+    -fx-background-color:darkseagreen;
+}
