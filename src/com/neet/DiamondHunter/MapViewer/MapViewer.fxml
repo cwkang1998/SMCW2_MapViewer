@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import javafx.scene.Cursor?>
 <AnchorPane prefHeight="760.0" prefWidth="640.0" style="-fx-background-color: #D4EDD2;"
             xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.neet.DiamondHunter.MapViewer.MapViewerController">
@@ -14,22 +13,22 @@
 
 
     <Button fx:id="btnAxe" layoutX="5.0" layoutY="645.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0"
-            style="-fx-background-color:#5b9654; -fx-background-image: url('/FXML-Image/axe.png'); -fx-background-size: cover,auto;"/>
+            style=" -fx-background-image: url('/FXML-Image/axe.png');"/>
 
     <Button fx:id="btnBoat" layoutX="135.0" layoutY="645.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0"
-            style="-fx-background-color:#5b9654; -fx-background-image: url('/FXML-Image/boat.png'); -fx-background-size: cover,auto;"/>
+            style="-fx-background-image: url('/FXML-Image/boat.png');"/>
 
     <Button layoutX="265.0" layoutY="645.0" mnemonicParsing="false" onAction="#resetToDefaultCoordinates"
             prefHeight="110.0" prefWidth="110.0"
-            style="-fx-background-color:#5b9654; -fx-background-image: url('/FXML-Image/default.png'); -fx-background-size: cover,auto;"/>
+            style="-fx-background-image: url('/FXML-Image/default.png');"/>
 
     <Button layoutX="396.0" layoutY="645.0" mnemonicParsing="false" onAction="#undoChanges" prefHeight="110.0"
             prefWidth="110.0"
-            style="-fx-background-color:#5b9654; -fx-background-image: url('/FXML-Image/save.png'); -fx-background-size: cover,auto;"/>
+            style="-fx-background-image: url('/FXML-Image/undo.png');"/>
 
     <Button layoutX="525.0" layoutY="645.0" mnemonicParsing="false" onAction="#showInformation" prefHeight="110.0"
             prefWidth="110.0"
-            style="-fx-background-color:#5b9654;-fx-background-image: url('/FXML-Image/questionmark.png'); -fx-background-size: cover,auto; ">
+            style="-fx-background-image: url('/FXML-Image/questionmark.png');">
     </Button>
 
 
