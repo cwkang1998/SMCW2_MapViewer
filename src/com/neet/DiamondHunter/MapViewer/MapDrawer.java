@@ -93,15 +93,15 @@ public class MapDrawer {
      * @param y
      * @return notClickable
      */
-    public boolean notClickable(int x, int y) {
-        boolean notClickable = false;
+    public boolean isClickable(int x, int y) {
+        boolean isClickable = false;
         try {
             if (map[y][x] >= 20) {
-                notClickable = true;
+                isClickable = true;
             }
         } catch (Exception e) {
         }
 
-        return notClickable;
+        return isClickable;
     }
 }

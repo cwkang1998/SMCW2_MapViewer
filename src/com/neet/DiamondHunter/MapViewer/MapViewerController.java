@@ -11,7 +11,7 @@ public class MapViewerController {
 
     @FXML
     private Canvas canvas;
-    private MapDrawer tilemap;
+    private MapDrawer tileMap;
 
     @FXML
     private Button btnAxe;
@@ -27,16 +27,16 @@ public class MapViewerController {
      * coordinates[2]=i;
      * coordinates[3]=j;
      */
-    public int coordinates[] = new int[4];
+    private int xCo, yCo;
+    private int[] coordinates = new int[4];
     private boolean isValid = false;
     private boolean axe = false;
     private boolean boat = false;
 
-    public int xCo, yCo;
 
     public void initialize() {
 
-        tilemap = new MapDrawer(canvas);
+        tileMap = new MapDrawer(canvas);
         readCoordinates();
         render();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
@@ -83,7 +83,7 @@ public class MapViewerController {
 
             xCo = (int) event.getX() / 16;
             yCo = (int) event.getY() / 16;
-            if (tilemap.notClickable(xCo, yCo)) {
+            if (tileMap.isClickable(xCo, yCo)) {
                 isValid = false;
             } else {
                 isValid = true;
@@ -136,15 +136,11 @@ public class MapViewerController {
 
     @FXML
     public void showInformation() {
-        String instructions = "Axe and Boat Button: Clicking on the axe or boat button will allow you to set the new " +
-                "location for the item of choice. Simply click the button, then click on the new location of your choice " +
-                "on the map to set the new location.\n\n" +
-                "Default Button: The default button would reset the axe and boat coordinate back to the defaults of the game.\n\n" +
-                "Save Button: This button saves the items' coordinates that have been set by the player to a file, " +
-                "which will be used by the main game(Diamond Hunter) to place the items. Note that all coordinates changes " +
-                "will only take place in the game if it is saved, including the default button.\n\n";
+        String instructions = "Buttons:\n\n 1) Axe\t\t: Set Axe Location\n 2) Boat\t\t: Set Boat Location\n " +
+                "3) Default\t: Reset coordinates to defaults.\n 4) Undo\t\t: Undo to previous changes.\n " +
+                "5) Info\t\t: Show instruction of MapViewer.";
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("How to use MapViewer");
+        alert.setTitle(null);
         alert.setHeaderText("MapViewer Instruction");
         alert.setContentText(instructions);
         alert.showAndWait();
@@ -168,7 +164,7 @@ public class MapViewerController {
     }
 
     private void render() {
-        tilemap.drawMap();
-        tilemap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
+        tileMap.drawMap();
+        tileMap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
     }
 }
