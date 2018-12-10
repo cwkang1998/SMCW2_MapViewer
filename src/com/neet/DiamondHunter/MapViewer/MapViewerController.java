@@ -28,9 +28,9 @@ public class MapViewerController {
      * coordinates[3]=j;
      */
     public int coordinates[] = new int[4];
-    boolean isValid = false;
-    boolean axe = false;
-    boolean boat = false;
+    private boolean isValid = false;
+    private boolean axe = false;
+    private boolean boat = false;
 
     public int xCo, yCo;
 
@@ -95,7 +95,7 @@ public class MapViewerController {
     public void setLocation() {
         canvas.setOnMouseClicked(event -> {
             if (isValid) {
-                if (axe) {
+                if (boat) {
                     coordinates[0] = xCo;
                     coordinates[1] = yCo;
                     System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
@@ -103,7 +103,7 @@ public class MapViewerController {
                     render();
                 }
 
-                if (boat) {
+                if (axe) {
                     coordinates[2] = xCo;
                     coordinates[3] = yCo;
                     System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);

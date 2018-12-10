@@ -70,19 +70,20 @@ public class MapDrawer {
 
     /**
      * Draw out the usable items boat and axe on the given coordinates.
-     * @param axeX X coordinate for the axe
-     * @param axeY Y coordinate for the axe
+     *
      * @param boatX X coordinate for the boat
      * @param boatY Y coordinate for the boat
+     * @param axeX  X coordinate for the axe
+     * @param axeY  Y coordinate for the axe
      */
-    public void drawItems(int axeX, int axeY, int boatX, int boatY) {
+    public void drawItems(int boatX, int boatY, int axeX, int axeY) {
         //Draw the axe
         graphicsContext.drawImage(itemSprite, 0, 16, tileSize, tileSize,
-                (axeX * tileSize), (axeY * tileSize), tileSize, tileSize);
+                (boatX * tileSize), (boatY * tileSize), tileSize, tileSize);
 
         //Draw the boat
         graphicsContext.drawImage(itemSprite, 16, 16, tileSize, tileSize,
-                (boatX * tileSize), (boatY * tileSize), tileSize, tileSize);
+                (axeX * tileSize), (axeY * tileSize), tileSize, tileSize);
     }
 
     /**
