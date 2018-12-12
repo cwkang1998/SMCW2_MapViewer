@@ -1,4 +1,30 @@
 .button{
-    -fx-background-color:#5b9654;
+    -fx-background-color:#99dbfc;
     -fx-background-size: cover;
+    -fx-border-width: 4;
+    -fx-border-color: black;
+}
+
+.button:hover{
+    -fx-background-color:#5e7bff;
+}
+
+#btnAxe:focused {
+    -fx-background-color:#5e7bff;
+}
+
+#btnBoat:focused {
+    -fx-background-color:#5e7bff;
+}
+
+#btnReset:pressed {
+    -fx-background-color:#5e7bff;
+}
+
+#btnUndo:pressed {
+    -fx-background-color:#5e7bff;
+}
+
+#btnInfo:pressed {
+    -fx-background-color:#5e7bff;
 }

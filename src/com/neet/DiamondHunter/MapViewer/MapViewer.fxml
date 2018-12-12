@@ -3,32 +3,25 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="760.0" prefWidth="640.0" style="-fx-background-color: #D4EDD2;"
-            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.neet.DiamondHunter.MapViewer.MapViewerController">
+<AnchorPane prefHeight="760.0" prefWidth="640.0" style="-fx-background-color: #99dbfc;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.MapViewer.MapViewerController">
 
-    <Canvas fx:id="canvas" height="640.0" onMouseClicked="#setLocation" onMouseEntered="#validation" width="640.0"
-            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+    <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#99dbfc" height="114.0" layoutX="5.0" layoutY="645.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="4.0" width="631.0" />
 
+    <Canvas fx:id="canvas" focusTraversable="true" height="640.0" onMouseClicked="#setLocation" onMouseEntered="#validation" width="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 
-    <Button fx:id="btnAxe" layoutX="5.0" layoutY="645.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0"
-            style=" -fx-background-image: url('/FXML-Image/axe.png');"/>
+    <Button fx:id="btnAxe" layoutX="13.0" layoutY="652.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-image: url('/FXML-Image/axe.png');" />
 
-    <Button fx:id="btnBoat" layoutX="135.0" layoutY="645.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="110.0"
-            style="-fx-background-image: url('/FXML-Image/boat.png');"/>
+    <Button fx:id="btnBoat" layoutX="137.0" layoutY="652.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-image: url('/FXML-Image/boat.png');" />
 
-    <Button layoutX="265.0" layoutY="645.0" mnemonicParsing="false" onAction="#resetToDefaultCoordinates"
-            prefHeight="110.0" prefWidth="110.0"
-            style="-fx-background-image: url('/FXML-Image/default.png');"/>
+    <Button id="btnReset" layoutX="264.0" layoutY="652.0" mnemonicParsing="false" onAction="#resetToDefaultCoordinates" prefHeight="100.0" prefWidth="100.0" style="-fx-background-image: url('/FXML-Image/default.png');" />
 
-    <Button layoutX="396.0" layoutY="645.0" mnemonicParsing="false" onAction="#undoChanges" prefHeight="110.0"
-            prefWidth="110.0"
+    <Button layoutX="396.0" layoutY="645.0" mnemonicParsing="false" onAction="#undoChanges" prefHeight="100.0"
+            prefWidth="100.0"
             style="-fx-background-image: url('/FXML-Image/undo.png');"/>
 
-    <Button layoutX="525.0" layoutY="645.0" mnemonicParsing="false" onAction="#showInformation" prefHeight="110.0"
-            prefWidth="110.0"
-            style="-fx-background-image: url('/FXML-Image/questionmark.png');">
+    <Button id="btnInfo" layoutX="526.0" layoutY="652.0" mnemonicParsing="false" onAction="#showInformation" prefHeight="100.0" prefWidth="100.0" style="-fx-background-image: url('/FXML-Image/questionmark.png');">
     </Button>
 
 

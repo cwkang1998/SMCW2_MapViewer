@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.shape.Rectangle;
 
 import java.io.File;
 import java.io.FileReader;
@@ -24,6 +25,9 @@ public class MapViewerController {
 
     @FXML
     private Button btnBoat;
+
+    @FXML
+    private Rectangle rectangle;
 
     private MapDrawer tileMap;
 
@@ -50,6 +54,7 @@ public class MapViewerController {
         readCoordinates();
         render();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+
 
         btnAxe.setOnAction(event -> {
             axe = true;
@@ -99,10 +104,10 @@ public class MapViewerController {
                 }
             } else {
                 if (boat || axe) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Warning");
                     alert.setHeaderText(null);
-                    alert.setContentText("Access Denied");
+                    alert.setContentText("You can't place it here.");
                     alert.showAndWait();
                 }
             }
@@ -187,6 +192,8 @@ public class MapViewerController {
 
     private void render() {
         tileMap.drawMap();
+        tileMap.drawAvatar();
+        tileMap.drawDiamonds();
         tileMap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
     }
 }
