@@ -16,6 +16,7 @@ public class MapDrawer {
     private GraphicsContext graphicsContext;
     private Image tile;
     private Image itemSprite;
+    private Image avatarSprite;
 
     private int tileSize;
     private int[][] map;
@@ -29,6 +30,7 @@ public class MapDrawer {
         this.tileSize = 16;
         this.tile = new Image("/Tilesets/testtileset.gif");
         this.itemSprite = new Image("/Sprites/items.gif");
+        this.avatarSprite = new Image("/Sprites/playersprites.gif");
 
         try {
             InputStream in = getClass().getResourceAsStream(MAP_URL); //read map file
@@ -84,6 +86,12 @@ public class MapDrawer {
         //Draw the boat
         graphicsContext.drawImage(itemSprite, 16, 16, tileSize, tileSize,
                 (axeX * tileSize), (axeY * tileSize), tileSize, tileSize);
+    }
+
+    public void drawAvatar() {
+        //Draw the avatar
+        graphicsContext.drawImage(avatarSprite, 0, 0, tileSize, tileSize,
+                (17 * tileSize), (17 * tileSize), tileSize, tileSize);
     }
 
     /**

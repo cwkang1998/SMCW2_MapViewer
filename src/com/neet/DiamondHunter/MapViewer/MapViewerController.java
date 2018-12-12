@@ -174,6 +174,7 @@ public class MapViewerController {
 
     private void render() {
         tilemap.drawMap();
+        tilemap.drawAvatar();
         tilemap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
     }
 }
