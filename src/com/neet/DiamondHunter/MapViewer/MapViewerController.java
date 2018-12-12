@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.shape.Rectangle;
 
 import java.io.*;
 
@@ -18,6 +19,9 @@ public class MapViewerController {
 
     @FXML
     private Button btnBoat;
+
+    @FXML
+    private Rectangle rectangle;
 
     /**
      * if axe is chosen
@@ -40,6 +44,7 @@ public class MapViewerController {
         readCoordinates();
         render();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+
 
         btnAxe.setOnAction(event -> {
             axe = true;
