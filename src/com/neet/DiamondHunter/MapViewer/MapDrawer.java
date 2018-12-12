@@ -17,6 +17,7 @@ public class MapDrawer {
     private Image tile;
     private Image itemSprite;
     private Image avatarSprite;
+    private Image diamondSprite;
 
     private int tileSize;
     private int[][] map;
@@ -31,6 +32,7 @@ public class MapDrawer {
         this.tile = new Image("/Tilesets/testtileset.gif");
         this.itemSprite = new Image("/Sprites/items.gif");
         this.avatarSprite = new Image("/Sprites/playersprites.gif");
+        this.diamondSprite = new Image("/Sprites/diamond.gif");
 
         try {
             InputStream in = getClass().getResourceAsStream(MAP_URL); //read map file
@@ -93,6 +95,57 @@ public class MapDrawer {
         graphicsContext.drawImage(avatarSprite, 0, 0, tileSize, tileSize,
                 (17 * tileSize), (17 * tileSize), tileSize, tileSize);
     }
+
+
+    public void drawDiamonds() {
+        //Draw the diamonds
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (20 * tileSize), (20 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (36 * tileSize), (12 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (4 * tileSize), (28 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (34 * tileSize), (4 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (19 * tileSize), (28 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (26 * tileSize), (35 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (36 * tileSize), (38 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (28 * tileSize), (27 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (30 * tileSize), (20 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (25 * tileSize), (14 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (21 * tileSize), (4 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (14 * tileSize), (9 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (3 * tileSize), (4 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (14 * tileSize), (20 * tileSize), tileSize, tileSize);
+
+        graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
+                (20 * tileSize), (13 * tileSize), tileSize, tileSize);
+
+    }
+
 
     /**
      * Check if axe and boat can be placed
