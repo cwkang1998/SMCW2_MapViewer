@@ -21,15 +21,6 @@ public class MapViewerController {
     @FXML
     private Canvas canvas;
 
-    @FXML
-    private Button btnAxe;
-
-    @FXML
-    private Button btnBoat;
-
-    @FXML
-    private Rectangle rectangle;
-
     private MapDrawer tileMap;
 
     /**
@@ -42,20 +33,27 @@ public class MapViewerController {
      */
     private boolean axe = false;
     private boolean boat = false;
+    private int curMouseX;
+    private int curMouseY;
 
     private int[] coordinates = new int[4];
     private ArrayList<int[]> coordinateHistory;
-    public final static String coordinateSaveFile = "Resources/Maps/Coordinates.txt";
+    public final static String COORDINATE_SAVE_FILE = "Resources/Maps/Coordinates.txt";
 
 
+    /**
+     * Initialize function, meant for fxml loader to initialize the controller
+     */
     public void initialize() {
         this.tileMap = new MapDrawer(canvas);
         this.coordinateHistory = new ArrayList<>();
         readCoordinates();
         render();
-        System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
     }
 
+    /**
+     * Handle Axe Button Click event
+     */
     @FXML
     public void onBtnAxeClicked() {
         axe = true;
@@ -63,6 +61,9 @@ public class MapViewerController {
         render();
     }
 
+    /**
+     * Handle Boat Button Click event
+     */
     @FXML
     public void onBtnBoatClicked() {
         axe = false;
@@ -70,20 +71,23 @@ public class MapViewerController {
         render();
     }
 
+    /**
+     * Hightlights your current cursor location on mouse moved
+     *
+     * @param event MouseEvent
+     */
     @FXML
     public void highlightCursor(MouseEvent event) {
-//        canvas.setOnMouseMoved(event -> {
-//
-//            xCo = (int) event.getX() / 16;
-//            yCo = (int) event.getY() / 16;
-//            if (tileMap.isClickable(xCo, yCo)) {
-//                isValid = false;
-//            } else {
-//                isValid = true;
-//            }
-//        });
+        curMouseX = (int) event.getX() / 16;
+        curMouseY = (int) event.getY() / 16;
+        render();
     }
 
+    /**
+     * Set the item's location
+     *
+     * @param event MouseEvent
+     */
     @FXML
     public void setLocation(MouseEvent event) {
         int xCo = (int) event.getX() / 16;
@@ -117,6 +121,9 @@ public class MapViewerController {
     }
 
 
+    /**
+     * Reset the items to their default preset location.
+     */
     @FXML
     public void resetToDefaultCoordinates() {
         boat = axe = false;
@@ -128,6 +135,9 @@ public class MapViewerController {
         render();
     }
 
+    /**
+     * Display an alert box with the instruction for the MapViewer
+     */
     @FXML
     public void showInformation() {
         String instructions = "Buttons:\n\n 1) Axe\t\t: Set Axe Location\n 2) Boat\t\t: Set Boat Location\n " +
@@ -140,6 +150,9 @@ public class MapViewerController {
         alert.showAndWait();
     }
 
+    /**
+     * Undo the previous change, returning the items back to their previous coordinates
+     */
     @FXML
     public void undoChanges() {
         boat = axe = false;
@@ -151,8 +164,11 @@ public class MapViewerController {
         }
     }
 
+    /**
+     * Read the coordinates from the coordinate save files
+     */
     private void readCoordinates() {
-        File filename = new File(coordinateSaveFile);
+        File filename = new File(COORDINATE_SAVE_FILE);
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
 
             String line;
@@ -172,7 +188,7 @@ public class MapViewerController {
         BufferedWriter bw;
         FileWriter fw;
         try {
-            fw = new FileWriter(coordinateSaveFile);
+            fw = new FileWriter(COORDINATE_SAVE_FILE);
             bw = new BufferedWriter(fw);
 
             for (int i = 0; i < 4; i++) {
@@ -191,6 +207,10 @@ public class MapViewerController {
         }
     }
 
+    /**
+     * Responsible for the rendering of the canvas.
+     * All rendering related operations are done here.
+     */
     private void render() {
         tileMap.drawMap();
         tileMap.drawAvatar();
@@ -198,5 +218,6 @@ public class MapViewerController {
         tileMap.setAxeHighlighted(axe);
         tileMap.setBoatHighlighted(boat);
         tileMap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
+        tileMap.drawCursorHighlight(curMouseX, curMouseY);
     }
 }

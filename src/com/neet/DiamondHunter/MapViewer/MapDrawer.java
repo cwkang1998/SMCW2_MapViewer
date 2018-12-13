@@ -29,6 +29,11 @@ public class MapDrawer {
     private boolean isBoatHighlighted;
 
 
+    /**
+     * Constructor for MapDrawer
+     *
+     * @param canvas canvas to draw on
+     */
     public MapDrawer(Canvas canvas) {
         this.canvas = canvas;
         this.graphicsContext = canvas.getGraphicsContext2D();
@@ -64,6 +69,9 @@ public class MapDrawer {
         canvas.setHeight(mapHeight * 16);
     }
 
+    /**
+     * Draw the full tileMap for the game.
+     */
     public void drawMap() { //draw map
         for (int row = 0; row < map.length; row++) {
             for (int col = 0; col < map[row].length; col++) {
@@ -106,13 +114,18 @@ public class MapDrawer {
         }
     }
 
+    /**
+     * Draw out the sprite/avatar for the playable character of the game on the map
+     */
     public void drawAvatar() {
         //Draw the avatar
         graphicsContext.drawImage(avatarSprite, 0, 0, tileSize, tileSize,
                 (17 * tileSize), (17 * tileSize), tileSize, tileSize);
     }
 
-
+    /**
+     * Draw out all the diamonds on the map.
+     */
     public void drawDiamonds() {
         //Draw the diamonds
         graphicsContext.drawImage(diamondSprite, 0, 0, tileSize, tileSize,
@@ -166,19 +179,36 @@ public class MapDrawer {
     /**
      * Check if axe and boat can be placed
      *
-     * @param x
-     * @param y
+     * @param x x coordinates
+     * @param y y coordinates
      * @return boolean value indicating if the tile is clickable
      */
     public boolean isClickable(int x, int y) {
         return map[y][x] < 20;
     }
 
+    /**
+     * Setter for isAxeHighlighted
+     * Set Axe to be highlighted
+     *
+     * @param highlight true to highlight, false to de-highlight
+     */
     public void setAxeHighlighted(boolean highlight) {
         this.isAxeHighlighted = highlight;
     }
 
+    /**
+     * Setter for isBoatHighlighted
+     * Set boat to be highlighted
+     *
+     * @param highlight true to highlight, false to de-highlight
+     */
     public void setBoatHighlighted(boolean highlight) {
         this.isBoatHighlighted = highlight;
+    }
+
+    public void drawCursorHighlight(int xCo, int yCo) {
+        graphicsContext.setStroke(Color.GRAY);
+        graphicsContext.strokeRect(xCo * 16, yCo * 16, 16, 16);
     }
 }
