@@ -3,6 +3,7 @@
     -fx-background-size: cover;
     -fx-border-width: 4;
     -fx-border-color: black;
+    -fx-cursor: hand;
 }
 
 .button:hover{

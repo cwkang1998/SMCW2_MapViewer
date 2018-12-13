@@ -24,6 +24,9 @@ import com.neet.DiamondHunter.Manager.Data;
 import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
+import com.neet.DiamondHunter.MapViewer.MapDrawer;
+import com.neet.DiamondHunter.MapViewer.MapViewer;
+import com.neet.DiamondHunter.MapViewer.MapViewerController;
 import com.neet.DiamondHunter.TileMap.TileMap;
 
 public class PlayState extends GameState {
@@ -178,26 +181,21 @@ public class PlayState extends GameState {
     private void populateItems() {
 
         Item item;
-        int[] coordinates = {4, 12, 37, 26};
+        int[] coordinates = MapDrawer.DEFAULT_COORDINATE.clone();
 
-        if (Game.itemCoordsFile != null) {
-            File filename = new File(Game.itemCoordsFile);
-            try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
 
-                int i = 0;
-                String line;
-                while ((line = br.readLine()) != null) {
-                    coordinates[i] = Integer.parseInt(line);
-                    i++;
-                }
-            } catch (IOException e) {
-                //Reassign just in case.
-                coordinates[0] = 4;
-                coordinates[1] = 12;
-                coordinates[2] = 37;
-                coordinates[3] = 26;
-                e.printStackTrace();
+        try (BufferedReader br = new BufferedReader(new FileReader(MapViewer.COORDINATE_SAVE_FILE))) {
+
+            int i = 0;
+            String line;
+            while ((line = br.readLine()) != null) {
+                coordinates[i] = Integer.parseInt(line);
+                i++;
             }
+        } catch (IOException e) {
+            //Reassign just in case.
+            coordinates = MapDrawer.DEFAULT_COORDINATE.clone();
+            e.printStackTrace();
         }
         item = new Item(tileMap);
         item.setType(Item.AXE);
