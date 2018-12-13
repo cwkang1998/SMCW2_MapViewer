@@ -6,6 +6,8 @@ import javafx.scene.canvas.GraphicsContext;
 import java.io.*;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 public class MapDrawer {
 
@@ -23,6 +25,8 @@ public class MapDrawer {
     private int[][] map;
     private int mapWidth;
     private int mapHeight;
+    private boolean isAxeHighlighted;
+    private boolean isBoatHighlighted;
 
 
     public MapDrawer(Canvas canvas) {
@@ -33,6 +37,8 @@ public class MapDrawer {
         this.itemSprite = new Image("/Sprites/items.gif");
         this.avatarSprite = new Image("/Sprites/playersprites.gif");
         this.diamondSprite = new Image("/Sprites/diamond.gif");
+        this.isAxeHighlighted = false;
+        this.isBoatHighlighted = false;
 
         try {
             InputStream in = getClass().getResourceAsStream(MAP_URL); //read map file
@@ -89,6 +95,15 @@ public class MapDrawer {
         //Draw the boat
         graphicsContext.drawImage(itemSprite, 16, 16, tileSize, tileSize,
                 (axeX * tileSize), (axeY * tileSize), tileSize, tileSize);
+
+        graphicsContext.setStroke(Color.RED);
+        if (isBoatHighlighted) {
+            graphicsContext.strokeRect(boatX * tileSize, boatY * tileSize, 16, 16);
+
+        }
+        if (isAxeHighlighted) {
+            graphicsContext.strokeRect(axeX * tileSize, axeY * tileSize, 16, 16);
+        }
     }
 
     public void drawAvatar() {
@@ -153,9 +168,17 @@ public class MapDrawer {
      *
      * @param x
      * @param y
-     * @return notClickable
+     * @return boolean value indicating if the tile is clickable
      */
     public boolean isClickable(int x, int y) {
         return map[y][x] < 20;
+    }
+
+    public void setAxeHighlighted(boolean highlight) {
+        this.isAxeHighlighted = highlight;
+    }
+
+    public void setBoatHighlighted(boolean highlight) {
+        this.isBoatHighlighted = highlight;
     }
 }

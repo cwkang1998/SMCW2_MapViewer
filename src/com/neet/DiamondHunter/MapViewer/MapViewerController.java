@@ -54,19 +54,20 @@ public class MapViewerController {
         readCoordinates();
         render();
         System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+    }
 
+    @FXML
+    public void onBtnAxeClicked() {
+        axe = true;
+        boat = false;
+        render();
+    }
 
-        btnAxe.setOnAction(event -> {
-            axe = true;
-            boat = false;
-
-        });
-
-        btnBoat.setOnAction(event -> {
-            axe = false;
-            boat = true;
-
-        });
+    @FXML
+    public void onBtnBoatClicked() {
+        axe = false;
+        boat = true;
+        render();
     }
 
     @FXML
@@ -194,6 +195,8 @@ public class MapViewerController {
         tileMap.drawMap();
         tileMap.drawAvatar();
         tileMap.drawDiamonds();
+        tileMap.setAxeHighlighted(axe);
+        tileMap.setBoatHighlighted(boat);
         tileMap.drawItems(coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
     }
 }

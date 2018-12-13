@@ -19,10 +19,10 @@
             AnchorPane.topAnchor="0.0"/>
 
     <Button fx:id="btnAxe" layoutX="13.0" layoutY="652.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0"
-            style="-fx-background-image: url('/FXML-Image/axe.png');"/>
+            style="-fx-background-image: url('/FXML-Image/axe.png');" onMouseClicked="#onBtnAxeClicked"/>
 
     <Button fx:id="btnBoat" layoutX="137.0" layoutY="652.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0"
-            style="-fx-background-image: url('/FXML-Image/boat.png');"/>
+            style="-fx-background-image: url('/FXML-Image/boat.png');" onMouseClicked="#onBtnBoatClicked"/>
 
     <Button id="btnReset" layoutX="264.0" layoutY="652.0" mnemonicParsing="false" onAction="#resetToDefaultCoordinates"
             prefHeight="100.0" prefWidth="100.0" style="-fx-background-image: url('/FXML-Image/default.png');"/>
