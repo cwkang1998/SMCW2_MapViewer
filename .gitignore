@@ -1,3 +1,12 @@
-bin/
+bin/com/*
+bin/FXML-image/*
+bin/HUD/*
+bin/Logo/*
+bin/Maps/*
+bin/Music/*
+bin/SFX/*
+bin/Sprites/*
+bin/Tilesets/*
+
 .idea/
 Coordinates.txt
