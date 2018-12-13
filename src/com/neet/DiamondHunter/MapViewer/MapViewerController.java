@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 import java.io.File;
@@ -71,47 +72,48 @@ public class MapViewerController {
 
     @FXML
     public void validation() {
-        canvas.setOnMouseMoved(event -> {
-
-            xCo = (int) event.getX() / 16;
-            yCo = (int) event.getY() / 16;
-            if (tileMap.isClickable(xCo, yCo)) {
-                isValid = false;
-            } else {
-                isValid = true;
-            }
-        });
+//        canvas.setOnMouseMoved(event -> {
+//
+//            xCo = (int) event.getX() / 16;
+//            yCo = (int) event.getY() / 16;
+//            if (tileMap.isClickable(xCo, yCo)) {
+//                isValid = false;
+//            } else {
+//                isValid = true;
+//            }
+//        });
     }
 
     @FXML
-    public void setLocation() {
-        canvas.setOnMouseClicked(event -> {
-            if (isValid) {
-                if (boat) {
-                    coordinates[0] = xCo;
-                    coordinates[1] = yCo;
-                    System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
-                    saveNewCoordinates();
-                    render();
-                }
-
-                if (axe) {
-                    coordinates[2] = xCo;
-                    coordinates[3] = yCo;
-                    System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
-                    saveNewCoordinates();
-                    render();
-                }
-            } else {
-                if (boat || axe) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Warning");
-                    alert.setHeaderText(null);
-                    alert.setContentText("You can't place it here.");
-                    alert.showAndWait();
-                }
+    public void setLocation(MouseEvent event) {
+        xCo = (int) event.getX() / 16;
+        yCo = (int) event.getY() / 16;
+        if (tileMap.isClickable(xCo, yCo)) {
+            if (boat) {
+                coordinates[0] = xCo;
+                coordinates[1] = yCo;
+                System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+                saveNewCoordinates();
+                render();
             }
-        });
+
+            if (axe) {
+                coordinates[2] = xCo;
+                coordinates[3] = yCo;
+                System.out.println(coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
+                saveNewCoordinates();
+                render();
+            }
+        } else {
+            if (boat || axe) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Warning");
+                alert.setHeaderText(null);
+                alert.setContentText("You can't place it here.");
+                alert.showAndWait();
+            }
+        }
+
     }
 
 
