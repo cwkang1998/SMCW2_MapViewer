@@ -50,6 +50,7 @@ public class MapDrawer {
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         //Set canvas to dynamic

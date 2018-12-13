@@ -15,7 +15,7 @@
                width="631.0"/>
 
     <Canvas fx:id="canvas" focusTraversable="true" height="640.0" onMouseClicked="#setLocation"
-            onMouseEntered="#validation" width="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+            onMouseEntered="#highlightCursor" width="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
             AnchorPane.topAnchor="0.0"/>
 
     <Button fx:id="btnAxe" layoutX="13.0" layoutY="652.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0"

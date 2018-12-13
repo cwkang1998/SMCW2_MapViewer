@@ -42,11 +42,10 @@ public class MapViewerController {
      */
     private boolean axe = false;
     private boolean boat = false;
-    private int xCo, yCo;
-    private boolean isValid = false;
 
     private int[] coordinates = new int[4];
     private ArrayList<int[]> coordinateHistory;
+    public final static String coordinateSaveFile = "Resources/Maps/Coordinates.txt";
 
 
     public void initialize() {
@@ -71,7 +70,7 @@ public class MapViewerController {
     }
 
     @FXML
-    public void validation() {
+    public void highlightCursor(MouseEvent event) {
 //        canvas.setOnMouseMoved(event -> {
 //
 //            xCo = (int) event.getX() / 16;
@@ -86,8 +85,8 @@ public class MapViewerController {
 
     @FXML
     public void setLocation(MouseEvent event) {
-        xCo = (int) event.getX() / 16;
-        yCo = (int) event.getY() / 16;
+        int xCo = (int) event.getX() / 16;
+        int yCo = (int) event.getY() / 16;
         if (tileMap.isClickable(xCo, yCo)) {
             if (boat) {
                 coordinates[0] = xCo;
@@ -142,6 +141,7 @@ public class MapViewerController {
 
     @FXML
     public void undoChanges() {
+        boat = axe = false;
         if (coordinateHistory.size() > 1) {
             coordinateHistory.remove(coordinateHistory.size() - 1);
             coordinates = coordinateHistory.get(coordinateHistory.size() - 1).clone();
@@ -151,7 +151,7 @@ public class MapViewerController {
     }
 
     private void readCoordinates() {
-        File filename = new File("Resources/Maps/Coordinates.txt");
+        File filename = new File(coordinateSaveFile);
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
 
             String line;
@@ -168,12 +168,10 @@ public class MapViewerController {
     }
 
     private void saveNewCoordinates() {
-        String filename = "Resources/Maps/Coordinates.txt";
-
         BufferedWriter bw;
         FileWriter fw;
         try {
-            fw = new FileWriter(filename);
+            fw = new FileWriter(coordinateSaveFile);
             bw = new BufferedWriter(fw);
 
             for (int i = 0; i < 4; i++) {
