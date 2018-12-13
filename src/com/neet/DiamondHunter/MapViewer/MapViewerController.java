@@ -16,6 +16,10 @@ import java.util.Arrays;
 
 import static com.neet.DiamondHunter.MapViewer.MapViewer.COORDINATE_SAVE_FILE;
 
+/**
+ * Controller for the MapViewer Application.
+ * Handles all user input and interaction with MapViewer.
+ */
 public class MapViewerController {
 
     @FXML

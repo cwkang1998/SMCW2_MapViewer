@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class MapViewer extends Application {
 
-    public final static String COORDINATE_SAVE_FILE = "Resources/Maps/Coordinates.txt";
+    public final static String COORDINATE_SAVE_FILE = "Coordinates.txt";
 
     @Override
     public void start(Stage primaryStage) throws Exception {

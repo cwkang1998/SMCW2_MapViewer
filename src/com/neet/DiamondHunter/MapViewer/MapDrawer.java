@@ -9,6 +9,10 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * MapDrawer is responsible for everything related to manipulating
+ * and drawing on the canvas.
+ */
 public class MapDrawer {
 
     public static String MAP_URL = "/Maps/testmap.map";
