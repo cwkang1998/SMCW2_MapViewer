@@ -2,12 +2,12 @@ package com.neet.DiamondHunter.MapViewer;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-
-import java.io.*;
-
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MapDrawer {
 
@@ -207,6 +207,13 @@ public class MapDrawer {
         this.isBoatHighlighted = highlight;
     }
 
+    /**
+     * Draw a box around current cursor location on the map
+     * to highlight your current cursor location on the map,
+     * and also show each tile's boundaries for better usability.
+     * @param xCo Current cursor X coordinates
+     * @param yCo Current cursor Y coordinates
+     */
     public void drawCursorHighlight(int xCo, int yCo) {
         graphicsContext.setStroke(Color.GRAY);
         graphicsContext.strokeRect(xCo * 16, yCo * 16, 16, 16);

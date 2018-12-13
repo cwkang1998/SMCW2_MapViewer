@@ -1,16 +1,15 @@
 package com.neet.DiamondHunter.MapViewer;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.scene.canvas.GraphicsContext;
 
 
 public class MapViewer extends Application {
+
+    public final static String COORDINATE_SAVE_FILE = "Resources/Maps/Coordinates.txt";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -26,7 +25,7 @@ public class MapViewer extends Application {
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args);
     }
 }

@@ -3,9 +3,7 @@ package com.neet.DiamondHunter.MapViewer;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
 
 import java.io.File;
 import java.io.FileReader;
@@ -15,6 +13,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static com.neet.DiamondHunter.MapViewer.MapViewer.COORDINATE_SAVE_FILE;
 
 public class MapViewerController {
 
@@ -38,8 +38,6 @@ public class MapViewerController {
 
     private int[] coordinates = new int[4];
     private ArrayList<int[]> coordinateHistory;
-    public final static String COORDINATE_SAVE_FILE = "Resources/Maps/Coordinates.txt";
-
 
     /**
      * Initialize function, meant for fxml loader to initialize the controller
@@ -179,7 +177,11 @@ public class MapViewerController {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //if there is no file, use the default coordinates
+            coordinates[0] = MapDrawer.DEFAULT_COORDINATE[0];
+            coordinates[1] = MapDrawer.DEFAULT_COORDINATE[1];
+            coordinates[2] = MapDrawer.DEFAULT_COORDINATE[2];
+            coordinates[3] = MapDrawer.DEFAULT_COORDINATE[3];
         }
         coordinateHistory.add(coordinates.clone());
     }
@@ -198,7 +200,6 @@ public class MapViewerController {
             bw.close();
             fw.close();
         } catch (IOException e) {
-
             e.printStackTrace();
 
         }
