@@ -1,14 +1,11 @@
 package com.neet.DiamondHunter.MapViewer;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.scene.canvas.GraphicsContext;
-
 
 public class MapViewer extends Application {
 
@@ -17,11 +14,12 @@ public class MapViewer extends Application {
         Pane page = FXMLLoader.load(getClass().getResource("MapViewer.fxml"));
         Scene scene = new Scene(page);
         scene.getStylesheets().add(getClass().getResource("MapViewer.css").toExternalForm());
-        primaryStage.setTitle("MapViewer");
+        primaryStage.setTitle(" MapViewer");
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
         primaryStage.setResizable(false);
         primaryStage.show();
+        primaryStage.getIcons().add(new Image("/FXML-Image/windowsIcon.png"));
 
     }
 
