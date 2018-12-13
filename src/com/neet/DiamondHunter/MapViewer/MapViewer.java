@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.canvas.GraphicsContext;
@@ -18,12 +19,15 @@ public class MapViewer extends Application {
         Scene scene = new Scene(page);
         scene.getStylesheets().add(getClass().getResource("MapViewer.css").toExternalForm());
         primaryStage.setTitle("MapViewer");
+        primaryStage.getIcons().add(new Image("/Logo/11-treasure-map-512.png"));
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
         primaryStage.setResizable(false);
         primaryStage.show();
 
     }
+
+
 
 
     public static void main(String[] args){
