@@ -3,17 +3,10 @@ package com.neet.DiamondHunter.MapViewer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-<<<<<<< HEAD
-import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-=======
-import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
->>>>>>> feature/item-locator
 
 public class MapViewer extends Application {
 
