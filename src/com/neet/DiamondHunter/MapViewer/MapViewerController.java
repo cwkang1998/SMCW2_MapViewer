@@ -143,8 +143,8 @@ public class MapViewerController {
     @FXML
     public void showInformation() {
         String instructions = "Buttons:\n\n 1) Axe\t\t: Set Axe Location\n 2) Boat\t\t: Set Boat Location\n " +
-                "3) Default\t: Reset coordinates to defaults.\n 4) Undo\t\t: Undo to previous changes.\n " +
-                "5) Info\t\t: Show instruction of MapViewer.";
+                "3) Default\t: Reset Axe and Boat Locations\n 4) Undo\t\t: Undo Previous Changes\n " +
+                "5) Info\t\t: Show MapViewer Instruction";
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(null);
         alert.setHeaderText("MapViewer Instruction");

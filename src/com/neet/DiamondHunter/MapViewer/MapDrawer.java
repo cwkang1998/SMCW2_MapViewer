@@ -108,7 +108,7 @@ public class MapDrawer {
         graphicsContext.drawImage(itemSprite, 16, 16, tileSize, tileSize,
                 (axeX * tileSize), (axeY * tileSize), tileSize, tileSize);
 
-        graphicsContext.setStroke(Color.RED);
+        graphicsContext.setStroke(Color.BLACK);
         if (isBoatHighlighted) {
             graphicsContext.strokeRect(boatX * tileSize, boatY * tileSize, 16, 16);
 
@@ -219,7 +219,7 @@ public class MapDrawer {
      * @param yCo Current cursor Y coordinates
      */
     public void drawCursorHighlight(int xCo, int yCo) {
-        graphicsContext.setStroke(Color.GRAY);
+        graphicsContext.setStroke(Color.CORAL);
         graphicsContext.strokeRect(xCo * 16, yCo * 16, 16, 16);
     }
 }
