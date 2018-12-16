@@ -10,6 +10,8 @@ Both of the application are built into `.jar` files and placed into the [bin/](b
 
 To run Diamond Hunter, open and start up [Diamond-Hunter.jar](bin/Diamond-Hunter.jar) and the game should be launched.
 
+For Windows user, open command prompt, change directory(cd) to Diamond Hunter bin folder and type "java -jar Diamond-Hunter.jar".
+
 If you are running Diamond Hunter from the source code, simply run [com.neet.DiamondHunter.Main.Game.main()](src/com/neet/DiamondHunter/Main/Game.java) to start the application.
 
 ## MapViewer
@@ -17,6 +19,8 @@ If you are running Diamond Hunter from the source code, simply run [com.neet.Dia
 ### Running MapViewer
 
 To run MapViewer, open and start up [MapViewer.jar](bin/MapViewer.jar) and the game should be launched just like Diamond Hunter.
+
+For Windows user, open command prompt, change directory(cd) to Diamond Hunter bin folder and type "java -jar MapViewer.jar".
 
 If you are running MapViewer from the source code however, run [com.neet.DiamondHunter.MapViewer.MapViewer.main()](src/com/neet/DiamondHunter/MapViewer/MapViewer.java) to start the application.
 
